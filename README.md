@@ -1,2 +1,2 @@
-# Minieksame
-Detter er vores minieskame
+# Minieksamen
+Detter er vores minieksamen
