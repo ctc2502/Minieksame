@@ -6,10 +6,10 @@ ArrayList<InputField> textboxes = new ArrayList<InputField>();
 String userTekst, passTekst, msgTekst;
 
 void setup() {
-  size(800,800);
+  size(800, 800);
   InputField User = new InputField((width - 300) / 2, 50, 300, 35);
-  
-   textboxes.add(User); 
+
+  textboxes.add(User);
 }
 
 void draw() {
@@ -17,10 +17,9 @@ void draw() {
     t.DRAW();
   } 
   if (send) {
-            fill(255);
-            text(msg, ( 200 - textWidth(msg)), 260);
-        }
-
+    fill(255);
+    text(msg, ( 200 - textWidth(msg)), 260);
+  }
 }
 
 void keyPressed() {
@@ -36,7 +35,7 @@ void keyPressed() {
 }
 
 void mousePressed() {
- for (InputField t : textboxes) {
+  for (InputField t : textboxes) {
     t.PRESSED(mouseX, mouseY);
   }
 }

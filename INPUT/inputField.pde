@@ -1,4 +1,4 @@
-public class InputField {
+public class InputField { //<>//
   public int TEXTSIZE = 24;
 
   public int X, Y, H, W;
@@ -19,7 +19,7 @@ public class InputField {
 
   public String Text = "";
   public int TextLength =   0;
- //<>//
+
 
   private boolean selected = false;
 
@@ -54,7 +54,7 @@ public class InputField {
       } else if (KEYCODE == (int)ENTER) {
         return true;
       } else {
-   boolean isKeyCapitalLetter = (KEY >= 'A' && KEY <= 'Z');
+        boolean isKeyCapitalLetter = (KEY >= 'A' && KEY <= 'Z');
         boolean isKeySmallLetter = (KEY >= 'a' && KEY <= 'z');
         boolean isKeyNumber = (KEY >= '0' && KEY <= '9');
 
