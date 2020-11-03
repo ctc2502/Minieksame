@@ -67,15 +67,18 @@ void mouseClicked() {
   }
   //knapRight
   if (mouseReg(knapRightX, knapRightY, knapRightW, knapRightH)) {
-    println("knapRight er trykket");
-  }
-  if (mouseReg(knapLeftX, knapLeftY, knapLeftW, knapLeftH)) {
-    println("knapLeft er trykket");
+    fill(255,0,0);
+    rect(mouseX, mouseY, 100, 100);
+  } 
+  //knapLeft
+  if(mouseReg(knapLeftX, knapLeftY, knapLeftW, knapLeftH)) {
+    fill(0,255,0);
+    rect(mouseX ,mouseY ,100 ,100);
   }
 }
 
 public boolean mouseReg(float x, float y, float w, float h) {
-  if (mouseX > x-w && mouseX < x+w && mouseY < y+h && mouseY > y-h) {
+  if (mouseX > x && mouseX < x+w && mouseY < y && mouseY > y+h) {
     return true;
   } else {
     return false;
