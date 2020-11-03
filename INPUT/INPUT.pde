@@ -7,6 +7,7 @@ String userTekst, passTekst, msgTekst;
 
 void setup() {
   size(800, 800);
+  background(250,150,150);
   InputField User = new InputField((width - 300) / 2, 50, 300, 35);
 
   textboxes.add(User);
@@ -26,10 +27,10 @@ void keyPressed() {
   for (InputField t : textboxes) {
     if (t.KEYPRESSED(key, keyCode)) {
       clear(); 
-      background(180);
+      background(250,150,150);
 
       send = true;
-      msg = "Username:" + textboxes.get(1).Text;
+      msg = textboxes.get(0).Text;
     }
   }
 }

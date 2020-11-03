@@ -9,9 +9,9 @@ public class InputField { //<>//
     this.W = W;
     this.H = H;
   }
-  public color Background = color(140, 140, 140);
+  public color Background = color(255, 255, 255);
   public color Foreground = color(0, 0, 0);
-  public color BackgroundSelected = color(160, 160, 160);
+  public color BackgroundSelected = color(240, 240, 240);
   public color Border = color(30, 30, 30);
 
   public boolean BorderEnable = false;
