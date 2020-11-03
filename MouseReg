@@ -1,5 +1,20 @@
+//Put dette under mouseReleased()/mouseClicked() med dets variabler
+if (mouseReg(x, y, w, h)) {
+   //Shit happens
+}
+
+//Hvis rectMode() CENTER
 public boolean mouseReg(float x, float y, float w, float h) {
     if (mouseX > x-w/2 && mouseX < x+w/2 && mouseY < y+h/2 && mouseY > y-h/2) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
+  //Hvis rectMode() Default
+public boolean mouseReg(float x, float y, float w, float h) {
+    if (mouseX > x-w && mouseX < x+w && mouseY < y+h && mouseY > y-h) {
       return true;
     } else {
       return false;
