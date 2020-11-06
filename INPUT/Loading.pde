@@ -2,7 +2,7 @@ void loading() {
   //Objekt
   LV = new LaererValgmulighed();
   SB = new Scrollbar(0, 795, width, 16, 16);
-  InputField User = new InputField((width - 300) / 2, 50, 300, 35);
+  InputField User = new InputField((width - 300) / 2, 100, 300, 35);
   
   OPGPOS = new PVector(100, -800);
   OPGSIZ = new PVector(600, 150);

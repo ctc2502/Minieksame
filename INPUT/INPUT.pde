@@ -1,5 +1,6 @@
 //Knap Variabler
 int opgaver = 0;
+int tests = 0;
 color frameColor, greenColor, bgColor; 
 PVector OPGPOS, OPGSIZ;
 PImage border;
@@ -28,20 +29,23 @@ String msg = "";
 ArrayList<InputField> textboxes = new ArrayList<InputField>();
 String userTekst, passTekst, msgTekst;
 
+
+
 void setup() {
   size(800, 800);
-  background(25, 75, 140);
   loading();
 }
 
 void draw() {
+  clear();
+  background(bgColor);
+  fill(255);
+  textAlign(CENTER);
+  text("Login", 400, 75);
+  textAlign(0);
   for (InputField t : textboxes) {
     t.DRAW();
   } 
-  if (send) {
-    fill(255);
-    text(msg, ( 200 - textWidth(msg)), 260);
-  }
   if (Phase == 1) {
     clear();
     LV.knapper();
@@ -61,8 +65,8 @@ void keyPressed() {
 
       Phase = 1;
 
-      send = true;
-      msg = textboxes.get(0).Text;
+      //send = true;
+      //msg = textboxes.get(0).Text;
     }
   }
 }

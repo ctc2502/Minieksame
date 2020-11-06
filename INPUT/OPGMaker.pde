@@ -39,9 +39,10 @@
   }
   
   popMatrix();
-  
-  SB.update();
-  SB.display();
+  if (opgaver > 2) {
+      SB.update();
+      SB.display();
+    }
   }
   
   void opgMouse() {
