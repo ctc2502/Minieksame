@@ -1,4 +1,11 @@
 //Knap Variabler
+int opgaver = 0;
+color frameColor, greenColor, bgColor; 
+PVector OPGPOS, OPGSIZ;
+PImage border;
+PFont sans; 
+float Pos, AlmenPos;
+Scrollbar SB;
 
 int knapW = 250;
 int knapH = 75;
@@ -24,12 +31,7 @@ String userTekst, passTekst, msgTekst;
 void setup() {
   size(800, 800);
   background(25, 75, 140);
-  InputField User = new InputField((width - 300) / 2, 50, 300, 35);
-
-  textboxes.add(User);
-
-  //Objekt
-  LV = new LaererValgmulighed();
+  loading();
 }
 
 void draw() {
@@ -43,6 +45,11 @@ void draw() {
   if (Phase == 1) {
     clear();
     LV.knapper();
+  }
+  
+  if (Phase == 2) {
+    clear();
+    OpgMaker();
   }
 }
 
@@ -65,19 +72,32 @@ void mouseClicked() {
     t.PRESSED(mouseX, mouseY);
   }
   //knapRight
-  if (mouseReg(knapRightX, knapRightY, knapW, knapH)) {
+  if (Phase == 1) {
+  if (overRec(knapRightX, knapRightY, knapW, knapH)) {
     fill(255,0,0);
     rect(mouseX, mouseY, 100, 100);
   } 
   //knapLeft
-  if(mouseReg(knapLeftX, knapLeftY, knapW, knapH)) {
-    fill(0,255,0);
-    rect(mouseX ,mouseY ,100 ,100);
+  if(overRec(knapLeftX, knapLeftY, knapW, knapH)) {
+    Phase = 2;
+    }  
+  } else if (Phase == 2) {
+    opgMouse();
   }
 }
 
-public boolean mouseReg(float x, float y, float w, float h) {
-  if (mouseX > x && mouseX < x+w && mouseY < y && mouseY > y+h) {
+boolean overRec(float x, float y, float w, float h) {
+    if (mouseX >= x && mouseX <= x+w && mouseY >= y && mouseY <= y+h) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+boolean overCircle(float x, float y, float diameter) {
+  float disX = x - mouseX;
+  float disY = y - mouseY;
+  if (sqrt(sq(disX) + sq(disY)) < diameter/2 ) {
     return true;
   } else {
     return false;
