@@ -25,7 +25,6 @@ void draw() {
   clear();
   background(25, 75, 140);
   LV.knapper();
-  //LV.knapRight();
 }
 
 void mouseClicked() {
