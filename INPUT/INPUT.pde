@@ -1,16 +1,15 @@
 //Knap Variabler
 
+int knapW = 250;
+int knapH = 75;
+
 //Variabler for knap left
 int knapLeftX = 100;
 int knapLeftY = 600;
-int knapLeftW = 250;
-int knapLeftH = 75;
 
 //Variabler for knap right
 int knapRightX = 450;
 int knapRightY = 600;
-int knapRightW = 250;
-int knapRightH = 75;
 
 //Objekter
 LaererValgmulighed LV;
@@ -66,12 +65,12 @@ void mouseClicked() {
     t.PRESSED(mouseX, mouseY);
   }
   //knapRight
-  if (mouseReg(knapRightX, knapRightY, knapRightW, knapRightH)) {
+  if (mouseReg(knapRightX, knapRightY, knapW, knapH)) {
     fill(255,0,0);
     rect(mouseX, mouseY, 100, 100);
   } 
   //knapLeft
-  if(mouseReg(knapLeftX, knapLeftY, knapLeftW, knapLeftH)) {
+  if(mouseReg(knapLeftX, knapLeftY, knapW, knapH)) {
     fill(0,255,0);
     rect(mouseX ,mouseY ,100 ,100);
   }

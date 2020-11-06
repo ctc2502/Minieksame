@@ -9,14 +9,14 @@ class LaererValgmulighed {
 
     //knapLeft
     fill(255);
-    rect(knapLeftX, knapLeftY, knapLeftW, knapLeftH);
+    rect(knapLeftX, knapLeftY, knapW, knapH);
     fill(0);
     textSize(20);
     text("Lav en ny prøve", knapLeftX+50, knapLeftY+45);
 
     //knapRight
     fill(255);
-    rect(knapRightX, knapRightY, knapRightW, knapRightH);
+    rect(knapRightX, knapRightY, knapW, knapH);
     fill(0);
     textSize(20);
     text("Indlæs tideligere prøver", knapRightX+10, knapRightY+45);
