@@ -22,12 +22,42 @@ void setup() {
 }
 
 void draw() {
-  background(bgColor);
+  OpgMaker();
+  //circle(OPGPOS.x-50, OPGPOS.y+OPGSIZ.y/2*AlmenPos+61, OPGSIZ.y/3);
+  //Debug
+  if (mouseButton == RIGHT) {
+    textSize(32);
+    ellipse( mouseX, mouseY, 2, 2 );
+    fill(0);
+    text( "x: " + mouseX + " y: " + mouseY, mouseX + 2, mouseY );
+    text(frameRate, mouseX+64, mouseY+64);
+    fill(255);
+  }
+  
+  
+  
+}
+
+void mouseReleased() {
+  opgMouse();
+}
+
+ void OPG(float x, float y, float w, float h) {
+   strokeWeight(2); 
+   stroke(frameColor);
+   fill(bgColor);
+   image(border, x, y-60);
+   rect(x, y, w, h);
+   fill(greenColor);
+  }
+  
+  void OpgMaker() {
+    background(bgColor);
   textAlign(CENTER);
   textSize(45);
   fill(255);
   
-  Pos = hs1.getPos()+10;
+    Pos = hs1.getPos()+10;
   AlmenPos = Pos*1.35;
   //println(OPGPOS.y+OPGSIZ.y/2*AlmenPos+61);
   println(opgaver);
@@ -63,24 +93,12 @@ void draw() {
   
   popMatrix();
   
-  //circle(OPGPOS.x-50, OPGPOS.y+OPGSIZ.y/2*AlmenPos+61, OPGSIZ.y/3);
-  //Debug
-  if (mouseButton == RIGHT) {
-    textSize(32);
-    ellipse( mouseX, mouseY, 2, 2 );
-    fill(0);
-    text( "x: " + mouseX + " y: " + mouseY, mouseX + 2, mouseY );
-    text(frameRate, mouseX+64, mouseY+64);
-    fill(255);
-  }
-  
    hs1.update();
   hs1.display();
+  }
   
-}
-
-void mouseReleased() {
-  if (opgaver == 0) {
+  void opgMouse() {
+    if (opgaver == 0) {
   if (overCircle(OPGPOS.x-50, OPGPOS.y+OPGSIZ.y/2*AlmenPos+61, OPGSIZ.y/3)) {
     opgaver = 1;
     }
@@ -102,15 +120,6 @@ void mouseReleased() {
     opgaver = 5;
     }
   }
-}
-
- void OPG(float x, float y, float w, float h) {
-   strokeWeight(2); 
-   stroke(frameColor);
-   fill(bgColor);
-   image(border, x, y-60);
-   rect(x, y, w, h);
-   fill(greenColor);
   }
  
  void loadImages() {
