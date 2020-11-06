@@ -1,10 +1,10 @@
 class HScrollbar {
-  int swidth, sheight;    // width and height of bar
-  float xpos, ypos;       // x and y position of bar
-  float spos, newspos;    // x position of slider
-  float sposMin, sposMax; // max and min values of slider
-  int loose;              // how loose/heavy
-  boolean over;           // is the mouse over the slider?
+  int swidth, sheight;   
+  float xpos, ypos;       
+  float spos, newspos;    
+  float sposMin, sposMax; 
+  int loose;              
+  boolean over;          
   boolean locked;
   float ratio;
 
@@ -68,8 +68,6 @@ class HScrollbar {
   }
 
   float getPos() {
-    // Convert spos to be values between
-    // 0 and the total width of the scrollbar
     return spos * ratio;
   }
 }
