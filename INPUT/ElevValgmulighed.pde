@@ -1,4 +1,4 @@
-class ElevValgmulighed extends forside {
+class ElevValgmulighed extends Forside {
 
   ElevValgmulighed() {
     velkommen = "Velkommen til elev,";

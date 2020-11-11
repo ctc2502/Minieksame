@@ -22,8 +22,10 @@ int knapRightY = 600;
 //Objekter
 LaererValgmulighed LV;
 ElevValgmulighed EV;
+Forside F;
+Login L;
 
-int Phase = 0;
+float Phase = 0;
 
 boolean send = false;
 String msg = "";
@@ -45,20 +47,23 @@ void draw() {
   for (InputField t : textboxes) {
     t.DRAW();
   } 
-  
-  if (Phase == -2){
-  
+
+  if (Phase == -2) {
   }
-  
+
   if (Phase == -1) {
     EV.knapper();
     LV.velkomsTekst();
   }
-  
-   if (Phase == 0){
-  
+
+  if (Phase == 0) {
+    F.knapper();
   }
-  
+
+  if (Phase == 0.5) {
+    L.login();
+  }
+
   if (Phase == 1) {
     clear();
     LV.knapper();
@@ -94,7 +99,7 @@ void mouseClicked() {
   for (InputField t : textboxes) {
     t.PRESSED(mouseX, mouseY);
   }
-  //knapRight 
+  //knapRight I Phase 1
   if (Phase == 1) {
     if (overRec(knapRightX, knapRightY, knapW, knapH)) {
       clear();
@@ -106,6 +111,15 @@ void mouseClicked() {
     }
   } else if (Phase == 2) {
     opgMouse();
+  }
+  if (Phase == 0) {
+    if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
+      Phase = 0.5;
+    }
+    
+    if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
+      Phase = 0.5;
+    }
   }
 }
 

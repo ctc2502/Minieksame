@@ -1,14 +1,14 @@
-class forside {
+class Forside {
 
   //Variabler
   String velkommen = "";
   String knapLeftText;
   String knapRightText;
 
-  forside() {
-    velkommen = "Velkommen til lærer,";
-    knapLeftText = "Lav en ny prøve";
-    knapRightText = "Indlæs tideligere prøver";
+  Forside() {
+    velkommen = "";
+    knapLeftText = "Login som lærer";
+    knapRightText = "Login som elev";
   }
 
   void knapper() {
