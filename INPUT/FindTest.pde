@@ -13,7 +13,7 @@ void findTest() {
   pushMatrix();
   
   translate(0, Pos*100);
-  text("Lav din Prøve", 400, -900);
+  text("Prøver", 400, -900);
   
   if (tests >= 0) {
     OPG(OPGPOS.x, OPGPOS.y, OPGSIZ.x, OPGSIZ.y);
@@ -46,27 +46,4 @@ void findTest() {
     }
   }
   
-  void testMouse() {
-    if (tests == 0) {
-  if (overCircle(OPGPOS.x-50, OPGPOS.y+OPGSIZ.y/2*AlmenPos+61, OPGSIZ.y/3)) {
-    tests = 1;
-    }
-  } else if (tests == 1) {
-  if (overCircle(OPGPOS.x-50, OPGPOS.y+OPGSIZ.y/2*AlmenPos+61+250, OPGSIZ.y/3)) {
-    tests = 2;
-    }
-  } else if (tests == 2) {
-  if (overCircle(OPGPOS.x-50, OPGPOS.y+OPGSIZ.y/2*AlmenPos+61+500, OPGSIZ.y/3)) {
-    tests = 3;
-    }
-  } else if (tests == 3) {
-  if (overCircle(OPGPOS.x-50, OPGPOS.y+OPGSIZ.y/2*AlmenPos+61+750, OPGSIZ.y/3)) {
-    tests = 4;
-    }
-  }
-  else if (tests == 4) {
-  if (overCircle(OPGPOS.x-50, OPGPOS.y+OPGSIZ.y/2*AlmenPos+61+1000, OPGSIZ.y/3)) {
-    tests = 5;
-    }
-  }
-  }
+    
