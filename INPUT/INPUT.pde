@@ -21,6 +21,7 @@ int knapRightY = 600;
 
 //Objekter
 LaererValgmulighed LV;
+ElevValgmulighed EV;
 
 int Phase = 0;
 
@@ -28,8 +29,6 @@ boolean send = false;
 String msg = "";
 ArrayList<InputField> textboxes = new ArrayList<InputField>();
 String userTekst, passTekst, msgTekst;
-
-
 
 void setup() {
   size(800, 800);
@@ -46,18 +45,24 @@ void draw() {
   for (InputField t : textboxes) {
     t.DRAW();
   } 
-  if (Phase == -1) {
-    clear();
-    findTest();
+  
+    if (Phase == -1) {
+    EV.knapper();
   }
+  
   if (Phase == 1) {
     clear();
     LV.knapper();
   }
-  
+
   if (Phase == 2) {
     clear();
     OpgMaker();
+  }
+
+  if (Phase == 3) {
+    clear();
+    findTest();
   }
 }
 
@@ -81,27 +86,26 @@ void mouseClicked() {
   }
   //knapRight 
   if (Phase == 1) {
-  if (overRec(knapRightX, knapRightY, knapW, knapH)) {
-    clear();
-    Phase = -1;
-    
-  } 
-  //knapLeft
-  if(overRec(knapLeftX, knapLeftY, knapW, knapH)) {
-    Phase = 2;
-    }  
+    if (overRec(knapRightX, knapRightY, knapW, knapH)) {
+      clear();
+      Phase = 3;
+    } 
+    //knapLeft
+    if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
+      Phase = 2;
+    }
   } else if (Phase == 2) {
     opgMouse();
   }
 }
 
 boolean overRec(float x, float y, float w, float h) {
-    if (mouseX >= x && mouseX <= x+w && mouseY >= y && mouseY <= y+h) {
-      return true;
-    } else {
-      return false;
-    }
+  if (mouseX >= x && mouseX <= x+w && mouseY >= y && mouseY <= y+h) {
+    return true;
+  } else {
+    return false;
   }
+}
 
 boolean overCircle(float x, float y, float diameter) {
   float disX = x - mouseX;

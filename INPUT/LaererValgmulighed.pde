@@ -1,12 +1,12 @@
 class LaererValgmulighed {
 
   //Variabler
-  String velkommen;
+  String velkommen = "";
   String knapLeftText;
   String knapRightText;
 
   LaererValgmulighed() {
-    velkommen = "Velkommen til lærer," + "\n" + textboxes.get(0).Text + "!";
+    velkommen = "Velkommen til lærer,";
     knapLeftText = "Lav en ny prøve";
     knapRightText = "Indlæs tideligere prøver";
     
@@ -17,7 +17,7 @@ class LaererValgmulighed {
 
     fill(255);
     textSize(48);
-    text(velkommen, 50, 100);
+    text(velkommen + "\n" + textboxes.get(0).Text + "!", 50, 100);
 
     //knapLeft
     fill(255);
