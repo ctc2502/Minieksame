@@ -1,6 +1,7 @@
 void loading() {
   //Objekt
   LV = new LaererValgmulighed();
+  EV = new ElevValgmulighed();
   SB = new Scrollbar(0, 795, width, 16, 16);
   InputField User = new InputField((width - 300) / 2, 100, 300, 35);
   

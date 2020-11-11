@@ -1,7 +1,7 @@
 class ElevValgmulighed extends LaererValgmulighed {
 
   ElevValgmulighed() {
-    velkommen = "Velkommen til lærer," + "\n" + textboxes.get(0).Text + "!";
+    velkommen = "Velkommen til elev,";
     knapLeftText = "Gå til dine prøver";
     knapRightText = "Se resultat af prøver";
   }
