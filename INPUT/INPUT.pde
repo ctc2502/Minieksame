@@ -39,6 +39,7 @@ void setup() {
 
 void draw() {
   clear();
+  println(Phase);
   background(bgColor);
   fill(255);
   textAlign(CENTER);
@@ -53,7 +54,7 @@ void draw() {
 
   if (Phase == -1) {
     EV.knapper();
-    LV.velkomsTekst();
+    EV.velkomsTekst();
   }
   
     if (Phase == -0.5) {
@@ -86,6 +87,7 @@ void draw() {
 }
 
 void keyPressed() {
+  if (Phase==0.5) {
   for (InputField t : textboxes) {
     if (t.KEYPRESSED(key, keyCode)) {
       clear(); 
@@ -95,6 +97,20 @@ void keyPressed() {
 
       //send = true;
       //msg = textboxes.get(0).Text;
+    }
+  }
+  }
+  if (Phase==-0.5) {
+  for (InputField t : textboxes) {
+    if (t.KEYPRESSED(key, keyCode)) {
+      clear(); 
+      background(25, 75, 140);
+
+      Phase = -1;
+
+      //send = true;
+      //msg = textboxes.get(0).Text;
+      }
     }
   }
 }
@@ -120,10 +136,11 @@ void mouseClicked() {
     if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
       Phase = 0.5;
     }
-    
     if (overRec(knapRightX, knapRightY, knapW, knapH)) {
-      Phase = 0.5;
+      Phase = -0.5;
     }
+    
+    
   }
 }
 

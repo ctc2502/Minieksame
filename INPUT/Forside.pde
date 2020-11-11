@@ -1,12 +1,11 @@
 class Forside {
 
   //Variabler
-  String velkommen = "";
+  String velkommen;
   String knapLeftText;
   String knapRightText;
 
   Forside() {
-    velkommen = "";
     knapLeftText = "Login som lærer";
     knapRightText = "Login som elev";
   }
