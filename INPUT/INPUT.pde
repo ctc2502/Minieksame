@@ -55,13 +55,17 @@ void draw() {
     EV.knapper();
     LV.velkomsTekst();
   }
+  
+    if (Phase == -0.5) {
+    L.login();
+  }
 
   if (Phase == 0) {
     F.knapper();
   }
 
   if (Phase == 0.5) {
-    L.login();
+    L.loginLaerer();
   }
 
   if (Phase == 1) {
@@ -117,7 +121,7 @@ void mouseClicked() {
       Phase = 0.5;
     }
     
-    if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
+    if (overRec(knapRightX, knapRightY, knapW, knapH)) {
       Phase = 0.5;
     }
   }
