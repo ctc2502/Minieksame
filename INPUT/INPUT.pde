@@ -46,6 +46,10 @@ void draw() {
   for (InputField t : textboxes) {
     t.DRAW();
   } 
+  if (Phase == -1) {
+    clear();
+    findTest();
+  }
   if (Phase == 1) {
     clear();
     LV.knapper();
@@ -75,11 +79,12 @@ void mouseClicked() {
   for (InputField t : textboxes) {
     t.PRESSED(mouseX, mouseY);
   }
-  //knapRight
+  //knapRight 
   if (Phase == 1) {
   if (overRec(knapRightX, knapRightY, knapW, knapH)) {
-    fill(255,0,0);
-    rect(mouseX, mouseY, 100, 100);
+    clear();
+    Phase = -1;
+    
   } 
   //knapLeft
   if(overRec(knapLeftX, knapLeftY, knapW, knapH)) {
