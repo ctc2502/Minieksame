@@ -46,13 +46,23 @@ void draw() {
     t.DRAW();
   } 
   
-    if (Phase == -1) {
+  if (Phase == -2){
+  
+  }
+  
+  if (Phase == -1) {
     EV.knapper();
+    LV.velkomsTekst();
+  }
+  
+   if (Phase == 0){
+  
   }
   
   if (Phase == 1) {
     clear();
     LV.knapper();
+    LV.velkomsTekst();
   }
 
   if (Phase == 2) {
