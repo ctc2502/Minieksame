@@ -6,6 +6,7 @@ void loading() {
   L = new Login();
   SB = new Scrollbar(0, 795, width, 16, 16);
   InputField User = new InputField((width - 300) / 2, 100, 300, 35);
+  InputField Desc = new InputField((width - 300) / 2, 500, 300, 35);
   
   OPGPOS = new PVector(100, -800);
   OPGSIZ = new PVector(600, 150);
@@ -19,4 +20,5 @@ void loading() {
   border = loadImage("Border.png");
   border.resize(602,50);
   textboxes.add(User);
+  textboxes.add(Desc);
  }
