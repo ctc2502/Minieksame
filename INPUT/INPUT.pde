@@ -21,15 +21,16 @@ int knapRightY = 600;
 
 //Objekter
 LaererValgmulighed LV;
+ElevValgmulighed EV;
+Forside F;
+Login L;
 
-int Phase = 0;
+float Phase = 0;
 
 boolean send = false;
 String msg = "";
 ArrayList<InputField> textboxes = new ArrayList<InputField>();
 String userTekst, passTekst, msgTekst;
-
-
 
 void setup() {
   size(800, 800);
@@ -38,6 +39,7 @@ void setup() {
 
 void draw() {
   clear();
+  println(Phase);
   background(bgColor);
   fill(255);
   textAlign(CENTER);
@@ -46,18 +48,46 @@ void draw() {
   for (InputField t : textboxes) {
     t.DRAW();
   } 
+
+  if (Phase == -2) {
+  }
+
+  if (Phase == -1) {
+    EV.knapper();
+    EV.velkomsTekst();
+  }
+  
+    if (Phase == -0.5) {
+    L.loginLaerer();
+  }
+
+  if (Phase == 0) {
+    F.knapper();
+  }
+
+  if (Phase == 0.5) {
+    L.loginLaerer();
+  }
+
   if (Phase == 1) {
     clear();
     LV.knapper();
+    LV.velkomsTekst();
   }
-  
+
   if (Phase == 2) {
     clear();
     OpgMaker();
   }
+
+  if (Phase == 3) {
+    clear();
+    findTest();
+  }
 }
 
 void keyPressed() {
+  if (Phase==0.5) {
   for (InputField t : textboxes) {
     if (t.KEYPRESSED(key, keyCode)) {
       clear(); 
@@ -69,34 +99,58 @@ void keyPressed() {
       //msg = textboxes.get(0).Text;
     }
   }
+  }
+  if (Phase==-0.5) {
+  for (InputField t : textboxes) {
+    if (t.KEYPRESSED(key, keyCode)) {
+      clear(); 
+      background(25, 75, 140);
+
+      Phase = -1;
+
+      //send = true;
+      //msg = textboxes.get(0).Text;
+      }
+    }
+  }
 }
 
 void mouseClicked() {
   for (InputField t : textboxes) {
     t.PRESSED(mouseX, mouseY);
   }
-  //knapRight
+  //knapRight I Phase 1
   if (Phase == 1) {
-  if (overRec(knapRightX, knapRightY, knapW, knapH)) {
-    fill(255,0,0);
-    rect(mouseX, mouseY, 100, 100);
-  } 
-  //knapLeft
-  if(overRec(knapLeftX, knapLeftY, knapW, knapH)) {
-    Phase = 2;
-    }  
+    if (overRec(knapRightX, knapRightY, knapW, knapH)) {
+      clear();
+      Phase = 3;
+    } 
+    //knapLeft
+    if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
+      Phase = 2;
+    }
   } else if (Phase == 2) {
     opgMouse();
+  }
+  if (Phase == 0) {
+    if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
+      Phase = 0.5;
+    }
+    if (overRec(knapRightX, knapRightY, knapW, knapH)) {
+      Phase = -0.5;
+    }
+    
+    
   }
 }
 
 boolean overRec(float x, float y, float w, float h) {
-    if (mouseX >= x && mouseX <= x+w && mouseY >= y && mouseY <= y+h) {
-      return true;
-    } else {
-      return false;
-    }
+  if (mouseX >= x && mouseX <= x+w && mouseY >= y && mouseY <= y+h) {
+    return true;
+  } else {
+    return false;
   }
+}
 
 boolean overCircle(float x, float y, float diameter) {
   float disX = x - mouseX;
