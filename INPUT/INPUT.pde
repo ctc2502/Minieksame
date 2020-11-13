@@ -40,15 +40,9 @@ void setup() {
 void draw() {
   clear();
   //println(Phase);
-  background(bgColor);
-  fill(255);
-  textAlign(CENTER);
-  text("Login", 400, 75);
-  textAlign(0);
-  
-  for (InputField t : textboxes) {
-    t.DRAW();
-  } 
+  if (Phase == 0) {
+    Phase01();
+  }
 
   if (Phase == -2) {
   }
@@ -161,4 +155,16 @@ boolean overCircle(float x, float y, float diameter) {
   } else {
     return false;
   }
+}
+
+void Phase01(){
+  background(bgColor);
+  fill(255);
+  textAlign(CENTER);
+  text("Login", 400, 75);
+  textAlign(0);
+  
+  for (InputField t : textboxes) {
+    t.DRAW();
+  } 
 }
