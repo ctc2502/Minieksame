@@ -25,6 +25,8 @@ ElevValgmulighed EV;
 Forside F;
 Login L;
 
+InputField Desc; 
+
 float Phase = 0;
 
 boolean send = false;
@@ -50,7 +52,7 @@ void draw() {
   if (Phase == -1) {
     EV.knapper();
     EV.velkomsTekst();
-  }
+    }
   
     if (Phase == -0.5) {
     L.loginLaerer();
@@ -89,9 +91,6 @@ void keyPressed() {
       background(25, 75, 140);
 
       Phase = 1;
-
-      //send = true;
-      //msg = textboxes.get(0).Text;
     }
   }
   }
@@ -108,7 +107,17 @@ void keyPressed() {
       }
     }
   }
-}
+  if (Phase==2) {
+  InputField g = textboxes.get(1);
+    if (g.KEYPRESSED(key, keyCode)) {
+      clear(); 
+      background(25, 75, 140);
+
+      Phase = 2;
+      }
+    }
+  }
+
 
 void mouseClicked() {
   for (InputField t : textboxes) {
@@ -164,7 +173,6 @@ void Phase01(){
   text("Login", 400, 75);
   textAlign(0);
   
-  for (InputField t : textboxes) {
-    t.DRAW();
-  } 
+ 
+    
 }

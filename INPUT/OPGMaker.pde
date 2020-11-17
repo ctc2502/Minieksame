@@ -1,6 +1,6 @@
  void OpgMaker() {
   background(bgColor);
-  textAlign(CENTER);
+  //textAlign(CENTER);
   textSize(45);
   fill(255);
   
@@ -11,7 +11,7 @@
   
   pushMatrix();
   
-  translate(0, Pos*100);
+ // translate(0, Pos*100);
   text("Lav din Prøve", 400, -900);
   
   if (opgaver >= 0) {
@@ -77,5 +77,14 @@ void OPG(float x, float y, float w, float h) {
    image(border, x, y-60);
    rect(x, y, w, h);
    fill(greenColor);
-   
+   Desc.X = x+w/4;
+   Desc.Y = y+50;
+   Desc.W = w/2;
+   Desc.H = h/3;
+   InputField g = textboxes.get(1);
+         g.DRAW();
+   if (mousePressed) {
+     g.PRESSED(mouseX, mouseY);
+   }
   }
+ 

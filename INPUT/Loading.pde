@@ -1,3 +1,5 @@
+
+
 void loading() {
   //Objekt
   LV = new LaererValgmulighed();
@@ -6,9 +8,9 @@ void loading() {
   L = new Login();
   SB = new Scrollbar(0, 795, width, 16, 16);
   InputField User = new InputField((width - 300) / 2, 100, 300, 35);
-  InputField Desc = new InputField((width - 300) / 2, 500, 300, 35);
+  Desc = new InputField();
   
-  OPGPOS = new PVector(100, -800);
+  OPGPOS = new PVector(100, 200);
   OPGSIZ = new PVector(600, 150);
   frameColor = color(184, 195, 204);
   bgColor = color(25, 75, 140);
