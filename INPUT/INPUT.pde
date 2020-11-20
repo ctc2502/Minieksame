@@ -6,7 +6,6 @@ PVector OPGPOS, OPGSIZ;
 PImage border;
 PFont sans; 
 float Pos, AlmenPos;
-Scrollbar SB;
 
 int knapW = 250;
 int knapH = 75;
@@ -25,7 +24,7 @@ ElevValgmulighed EV;
 Forside F;
 Login L;
 
-InputField Desc; 
+InputField[] DescTextboxArray; 
 
 float Phase = 0;
 
@@ -34,6 +33,8 @@ String msg = "";
 ArrayList<InputField> textboxes = new ArrayList<InputField>();
 String userTekst, passTekst, msgTekst;
 
+InputField t1, t2;
+
 void setup() {
   size(800, 800);
   loading();
@@ -41,6 +42,7 @@ void setup() {
 
 void draw() {
   clear();
+   println(textboxes.size());
   //println(Phase);
   if (Phase == 0) {
     Phase01();
@@ -85,18 +87,15 @@ void draw() {
 
 void keyPressed() {
   if (Phase==0.5) {
-  for (InputField t : textboxes) {
-    if (t.KEYPRESSED(key, keyCode)) {
+    if (t1.KEYPRESSED(key, keyCode)) {
       clear(); 
       background(25, 75, 140);
 
       Phase = 1;
     }
   }
-  }
   if (Phase==-0.5) {
-  for (InputField t : textboxes) {
-    if (t.KEYPRESSED(key, keyCode)) {
+    if (t1.KEYPRESSED(key, keyCode)) {
       clear(); 
       background(25, 75, 140);
 
@@ -106,13 +105,8 @@ void keyPressed() {
       //msg = textboxes.get(0).Text;
       }
     }
-  }
   if (Phase==2) {
-  InputField g = textboxes.get(1);
-    if (g.KEYPRESSED(key, keyCode)) {
-      clear(); 
-      background(25, 75, 140);
-
+    if (t2.KEYPRESSED(key, keyCode)) {
       Phase = 2;
       }
     }
@@ -120,16 +114,14 @@ void keyPressed() {
 
 
 void mouseClicked() {
-  for (InputField t : textboxes) {
-    t.PRESSED(mouseX, mouseY);
-  }
-  //knapRight I Phase 1
+
+    t1.PRESSED(mouseX, mouseY);
+ 
   if (Phase == 1) {
     if (overRec(knapRightX, knapRightY, knapW, knapH)) {
       clear();
       Phase = 3;
     } 
-    //knapLeft
     if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
       Phase = 2;
     }
@@ -172,7 +164,4 @@ void Phase01(){
   textAlign(CENTER);
   text("Login", 400, 75);
   textAlign(0);
-  
- 
-    
 }

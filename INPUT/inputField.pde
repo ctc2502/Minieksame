@@ -1,16 +1,17 @@
 public class InputField { //<>//
   public int TEXTSIZE = 24;
-
   public float X, Y, H, W;
+  public String S = "";
   InputField() {
       
    }
    
-  InputField(int X, int Y, int W, int H) {
+  InputField(int X, int Y, int W, int H, String S) {
     this.X = X;
     this.Y = Y;
     this.W = W;
     this.H = H;
+    this.S = S;
   }
   public color Background = color(255, 255, 255);
   public color Foreground = color(0, 0, 0);
@@ -20,33 +21,33 @@ public class InputField { //<>//
   public boolean BorderEnable = false;
   public int BorderWeight = 1;
 
-  public String Text = "";
+  public String Text = S;
   public int TextLength =   0;
 
 
   private boolean selected = false;
 
   void DRAW() {
-    if (selected) {
-      fill(color(BackgroundSelected));
-    } else {
-      fill(color(Background));
+    if (selected) { //<>//
+      fill(color(BackgroundSelected)); //<>//
+    } else { //<>//
+      fill(color(Background)); //<>//
+    } //<>//
+
+    if (BorderEnable) { //<>//
+      strokeWeight(BorderWeight); //<>//
+      stroke(color(Border)); //<>//
+    } else { //<>//
+      noStroke(); //<>//
     }
 
-    if (BorderEnable) {
-      strokeWeight(BorderWeight);
-      stroke(color(Border));
-    } else {
-      noStroke();
-    }
+    rect(X, Y, W, H); //<>//
 
-    rect(X, Y, W, H);
+    fill(color(Foreground)); //<>//
 
-    fill(color(Foreground));
-
-    textSize(TEXTSIZE);
-    text(Text, X + (textWidth("a") / 2), Y + TEXTSIZE);
-  }
+    textSize(TEXTSIZE); //<>//
+    text(Text, X + (textWidth("a") / 2), Y + TEXTSIZE); //<>//
+  } //<>//
 
   boolean KEYPRESSED(char KEY, int KEYCODE) {
     if (selected) {

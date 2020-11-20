@@ -6,9 +6,8 @@ void findTest() {
   textSize(45);
   fill(255);
   
-    Pos = SB.getPos()+10;
   AlmenPos = Pos*1.35;
-  //println(OPGPOS.y+OPGSIZ.y/2*AlmenPos+61);   
+  //println(OPGPOS.y+OPGSIZ1.y/2*AlmenPos+61);   
   
   pushMatrix();
   
@@ -40,10 +39,6 @@ void findTest() {
   }
   
   popMatrix();
-  if (tests > 2) {
-      SB.update();
-      SB.display();
-    }
   }
   
     

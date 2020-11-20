@@ -4,7 +4,6 @@
   textSize(45);
   fill(255);
   
-    Pos = SB.getPos()+10;
   AlmenPos = Pos*1.35;
   //println(OPGPOS.y+OPGSIZ.y/2*AlmenPos+61);
   println(opgaver);
@@ -39,10 +38,6 @@
   }
   
   popMatrix();
-  if (opgaver > 2) {
-      SB.update();
-      SB.display();
-    }
   }
   
   void opgMouse() {
@@ -71,20 +66,29 @@
 }
 
 void OPG(float x, float y, float w, float h) {
-   strokeWeight(2); 
+   strokeWeight(2);
    stroke(frameColor);
    fill(bgColor);
-   image(border, x, y-60);
+   image(border, x, y-80);
    rect(x, y, w, h);
    fill(greenColor);
-   Desc.X = x+w/4;
-   Desc.Y = y+50;
-   Desc.W = w/2;
-   Desc.H = h/3;
-   InputField g = textboxes.get(1);
+   t2.X = x+50;
+   t2.Y = y+50;
+   t2.W = w-100;
+   t2.H = 35;
+         t2.DRAW();
+   if (mousePressed) {
+     t2.PRESSED(mouseX, mouseY);
+     }
+     
+   /*  
+   InputField tb = g;
+   tb.X = x+50;
+   tb.Y = y+50;
+   tb.W = w-100;
+   tb.H = 35;
          g.DRAW();
    if (mousePressed) {
      g.PRESSED(mouseX, mouseY);
-   }
-  }
- 
+     } */
+}

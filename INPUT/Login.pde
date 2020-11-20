@@ -17,8 +17,7 @@ class Login {
     textAlign(CENTER);
     text("Login", 400, 75);
     textAlign(0);
-    for (InputField t : textboxes) {
-      t.DRAW();
-    }
+    InputField  t = textboxes.get(0);
+    t.DRAW();
   }
 }
