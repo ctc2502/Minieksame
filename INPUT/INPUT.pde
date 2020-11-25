@@ -23,6 +23,7 @@ LaererValgmulighed LV;
 ElevValgmulighed EV;
 Forside F;
 Login L;
+OOOPG opgMakr;
 
 InputField[] DescTextboxArray; 
 
@@ -33,7 +34,7 @@ String msg = "";
 ArrayList<InputField> textboxes = new ArrayList<InputField>();
 String userTekst, passTekst, msgTekst;
 
-InputField t1, t2;
+InputField t1, t2, t3, t4, t5, t6;
 
 void setup() {
   size(800, 800);
@@ -76,12 +77,20 @@ void draw() {
 
   if (Phase == 2) {
     clear();
-    OpgMaker();
+    opgMakr.display();
   }
 
   if (Phase == 3) {
     clear();
-    findTest();
+    //findTest();
+  }
+  
+    if (mouseButton == RIGHT) {
+    ellipse( mouseX, mouseY, 2, 2 );
+    fill(0);
+    text( "x: " + mouseX + " y: " + mouseY, mouseX + 2, mouseY );
+    text(frameRate, mouseX+64, mouseY+64);
+    fill(255);
   }
 }
 
@@ -109,6 +118,18 @@ void keyPressed() {
     if (t2.KEYPRESSED(key, keyCode)) {
       Phase = 2;
       }
+     if (t3.KEYPRESSED(key, keyCode)) {
+      Phase = 2;
+      }
+     if (t4.KEYPRESSED(key, keyCode)) {
+      Phase = 2;
+      }
+     if (t5.KEYPRESSED(key, keyCode)) {
+      Phase = 2;
+      }
+      if (t6.KEYPRESSED(key, keyCode)) {
+      Phase = 2;
+      }
     }
   }
 
@@ -126,7 +147,7 @@ void mouseClicked() {
       Phase = 2;
     }
   } else if (Phase == 2) {
-    opgMouse();
+    //opgMouse();
   }
   if (Phase == 0) {
     if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
@@ -135,8 +156,9 @@ void mouseClicked() {
     if (overRec(knapRightX, knapRightY, knapW, knapH)) {
       Phase = -0.5;
     }
-    
-    
+  }
+  if (Phase == 2) {
+    opgMakr.click();
   }
 }
 

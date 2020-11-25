@@ -6,6 +6,7 @@ void loading() {
   EV = new ElevValgmulighed();
   F = new Forside();
   L = new Login();
+  opgMakr = new OOOPG(50, 150, 700, 600);
   InputField UserTextbox = new InputField((width - 300) / 2, 100, 300, 35, "Brugernavn");
   
   DescTextboxArray = new InputField[5];
@@ -29,4 +30,8 @@ void loading() {
   
   t1 = textboxes.get(0);
   t2 = textboxes.get(1);
+  t3 = textboxes.get(2);
+  t4 = textboxes.get(3);
+  t5 = textboxes.get(4);
+  t6 = textboxes.get(5);
  }
