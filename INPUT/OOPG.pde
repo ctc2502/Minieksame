@@ -64,49 +64,49 @@ class OOOPG {
    fill(255);
    if (s1) {
    fill(0,250,0);
-   rect(x+45, y+147.5, 40, 40);
+   rect(t3.X-55, t3.Y-2.5, 40, 40);
    } else {
    fill(255);  
-   rect(x+45, y+147.5, 40, 40);  
+   rect(t3.X-55,t3.Y-2.5, 40, 40);  
    }
    
    if (s2) {
    fill(0,250,0);  
-   rect(x+45, y+200-2.5, 40, 40);
+   rect(t4.X-55, t4.Y-2.5, 40, 40);
    } else {
    fill(255);  
-   rect(x+45, y+200-2.5, 40, 40);
+   rect(t4.X-55, t4.Y-2.5, 40, 40);
    }
    
    if (s3) {
    fill(0,250,0);  
-   rect(x+45, y+250-2.5, 40, 40);
+   rect(t5.X-55, t5.Y-2.5, 40, 40);
    } else {
    fill(255);  
-   rect(x+45, y+250-2.5, 40, 40);
+   rect(t5.X-55, t5.Y-2.5, 40, 40);
    }
    
    if (s4) {
    fill(0,250,0);  
-   rect(x+45, y+300-2.5, 40, 40);
+   rect(t6.X-55, t6.Y-2.5, 40, 40);
    } else {
    fill(255);  
-   rect(x+45, y+300-2.5, 40, 40);
+   rect(t6.X-55, t6.Y-2.5, 40, 40);
    }
    
-   if (overRec(x+45, y+147.5, 40, 40)) {
+   if (overRec(t3.X-55, y+147.5, 40, 40)) {
      fill(0,250,0); 
      rect(x+42.5, y+145, 45, 45);
    }
-   if (overRec(x+45, y+200-2.5, 40, 40)) {
+   if (overRec(t4.X-55, y+200-2.5, 40, 40)) {
      fill(0,250,0); 
      rect(x+42.5, y+200-5, 45, 45);
    }
-   if (overRec(x+45, y+250-2.5, 40, 40)) {
+   if (overRec(t5.X-55, y+250-2.5, 40, 40)) {
      fill(0,250,0); 
      rect(x+42.5, y+250-5, 45, 45);
    }
-   if (overRec(x+45, y+300-2.5, 40, 40)) {
+   if (overRec(t6.X-55, y+300-2.5, 40, 40)) {
      fill(0,250,0); 
      rect(x+42.5, y+300-5, 45, 45);
    }
@@ -118,25 +118,25 @@ class OOOPG {
   }
   
   void click() {
-    if (overRec(x+45, y+147.5, 40, 40)) {
+    if (overRec(t3.X-55, y+147.5, 40, 40)) {
      s1 = true;
      s2 = false;
      s3 = false;
      s4 = false;
    }
-   if (overRec(x+45, y+200-2.5, 40, 40)) {
+   if (overRec(t4.X-55, y+200-2.5, 40, 40)) {
      s1 = false;
      s2 = true;
      s3 = false;
      s4 = false;
    }
-   if (overRec(x+45, y+250-2.5, 40, 40)) {
+   if (overRec(t5.X-55, y+250-2.5, 40, 40)) {
      s1 = false;
      s2 = false;
      s3 = true;
      s4 = false;
    }
-   if (overRec(x+45, y+300-2.5, 40, 40)) {
+   if (overRec(t6.X-55, t6.Y-2.5, 40, 40)) {
      s1 = false;
      s2 = false;
      s3 = false;
