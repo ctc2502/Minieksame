@@ -1,11 +1,11 @@
-
-
 void loading() {
   //Objekt
   LV = new LaererValgmulighed();
   EV = new ElevValgmulighed();
   F = new Forside();
   L = new Login();
+  B = new Button(10, 10, 50, 50);
+  tP = new tilgengeligeProver();
   opgMakr = new OOOPG(50, 150, 700, 600);
   InputField UserTextbox = new InputField((width - 300) / 2, 100, 300, 35, "Brugernavn");
   
@@ -19,7 +19,6 @@ void loading() {
   sans = createFont("Sans.ttf", 32);
   textFont(sans);
   
-   
   border = loadImage("Border.png");
   border.resize(702,75);
   textboxes.add(UserTextbox);

@@ -24,6 +24,8 @@ ElevValgmulighed EV;
 Forside F;
 Login L;
 OOOPG opgMakr;
+Button B;
+tilgengeligeProver tP;
 
 InputField[] DescTextboxArray; 
 String[] lines;
@@ -48,28 +50,37 @@ void draw() {
 
   switch(Phase) {
   case -3:
+    B.display();
+    if(opgaver > 0) {
+    tP.tabs(100);
+    }
     break;
   case -2:
     EV.knapper();
     EV.velkomsTekst();
+    B.display();
     break;
   case -1:
     L.loginLaerer();
+    B.display();
     break;
   default:
     DefaultPhase();
     break;  
   case 1:
     L.loginLaerer();
+    B.display();
     break;  
   case 2:
     clear();
     LV.knapper();
     LV.velkomsTekst();
+    B.display();
     break;
   case 3:
     clear();
     opgMakr.display();
+    B.display();
     break;
   }
 
@@ -113,10 +124,16 @@ void mouseClicked() {
 
   switch(Phase) {
   case -3:
+  B.mouse(-1);
     break;
   case -2:
+  B.mouse(-1);
+  if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
+      Phase = -3;
+    }
     break;
   case -1:
+  B.mouse(-1);
     break;
   default:
     if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
@@ -128,6 +145,7 @@ void mouseClicked() {
     break;  
   case 1:
     L.loginLaerer();
+    B.mouse(-1);
     break;  
   case 2:
     if (overRec(knapRightX, knapRightY, knapW, knapH)) {
@@ -138,9 +156,11 @@ void mouseClicked() {
       Phase = 3;
       opgaver++;
     }
+    B.mouse(-1);
     break;
   case 3:
     opgMakr.click();
+    B.mouse(-1);
     break;
   }
 }
