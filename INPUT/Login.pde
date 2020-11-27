@@ -8,7 +8,6 @@ class Login {
     textAlign(0);
     InputField t = textboxes.get(0);
          t.DRAW();
-         
      }
 
   void loginElev() {

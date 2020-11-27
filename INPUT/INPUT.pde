@@ -45,49 +45,35 @@ void setup() {
 void draw() {
   clear();
   println(Phase);
-  
-  
-  if (Phase == 0) {
-    Phase01();
-  }
 
-  if (Phase == -2) {
-  }
-
-  if (Phase == -1) {
+  switch(Phase) {
+  case -3:
+    break;
+  case -2:
     EV.knapper();
     EV.velkomsTekst();
-    }
-  
-    if (Phase == -0.5) {
+    break;
+  case -1:
     L.loginLaerer();
-  }
-
-  if (Phase == 0) {
-    F.knapper();
-  }
-
-  if (Phase == 0.5) {
+    break;
+  default:
+    DefaultPhase();
+    break;  
+  case 1:
     L.loginLaerer();
-  }
-
-  if (Phase == 1) {
+    break;  
+  case 2:
     clear();
     LV.knapper();
     LV.velkomsTekst();
-  }
-
-  if (Phase == 2) {
+    break;
+  case 3:
     clear();
     opgMakr.display();
+    break;
   }
 
-  if (Phase == 3) {
-    clear();
-    //findTest();
-  }
-  
-    if (mouseButton == RIGHT) {
+  if (mouseButton == RIGHT) {
     ellipse( mouseX, mouseY, 2, 2 );
     fill(0);
     text( "x: " + mouseX + " y: " + mouseY, mouseX + 2, mouseY );
@@ -97,52 +83,53 @@ void draw() {
 }
 
 void keyPressed() {
-  if (Phase==0.5) {
+  if (Phase == 1) {
     if (t1.KEYPRESSED(key, keyCode)) {
       clear(); 
       background(25, 75, 140);
 
       Phase = 2;
       saveStrings(textboxes.get(0).Text, lines);
-      lines[0] = textboxes.get(0).Text;
     }
   }
-  if (Phase==-0.5) {
+  if (Phase == -1) {
     if (t1.KEYPRESSED(key, keyCode)) {
       clear(); 
       background(25, 75, 140);
 
       Phase = -2;
-
-      //send = true;
-      //msg = textboxes.get(0).Text;
-      }
-    }
-  if (Phase==2) {
-    if (t2.KEYPRESSED(key, keyCode)) {
-      Phase = 3;
-      }
-     if (t3.KEYPRESSED(key, keyCode)) {
-      Phase = 3;
-      }
-     if (t4.KEYPRESSED(key, keyCode)) {
-      Phase = 3;
-      }
-     if (t5.KEYPRESSED(key, keyCode)) {
-      Phase = 3;
-      }
-      if (t6.KEYPRESSED(key, keyCode)) {
-      Phase = 3;
-      }
     }
   }
+  if (Phase == 3) {
+    if (t2.KEYPRESSED(key, keyCode) || t3.KEYPRESSED(key, keyCode) || t4.KEYPRESSED(key, keyCode) || t5.KEYPRESSED(key, keyCode) || t6.KEYPRESSED(key, keyCode)) {
+    }
+  }
+}
 
 
 void mouseClicked() {
 
-    t1.PRESSED(mouseX, mouseY);
- 
-  if (Phase == 1) {
+  t1.PRESSED(mouseX, mouseY);
+
+  switch(Phase) {
+  case -3:
+    break;
+  case -2:
+    break;
+  case -1:
+    break;
+  default:
+    if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
+      Phase = 1;
+    }
+    if (overRec(knapRightX, knapRightY, knapW, knapH)) {
+      Phase = -1;
+    }
+    break;  
+  case 1:
+    L.loginLaerer();
+    break;  
+  case 2:
     if (overRec(knapRightX, knapRightY, knapW, knapH)) {
       clear();
       Phase = 3;
@@ -151,17 +138,10 @@ void mouseClicked() {
       Phase = 3;
       opgaver++;
     }
-  } 
-  if (Phase == 0) {
-    if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
-      Phase = 2;
-    }
-    if (overRec(knapRightX, knapRightY, knapW, knapH)) {
-      Phase = -2;
-    }
-  }
-  if (Phase == 2) {
+    break;
+  case 3:
     opgMakr.click();
+    break;
   }
 }
 
@@ -183,10 +163,11 @@ boolean overCircle(float x, float y, float diameter) {
   }
 }
 
-void Phase01(){
+void DefaultPhase() {
   background(bgColor);
   fill(255);
   textAlign(CENTER);
   text("Login", 400, 75);
   textAlign(0);
+  F.knapper();
 }
