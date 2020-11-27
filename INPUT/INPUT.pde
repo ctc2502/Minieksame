@@ -50,24 +50,29 @@ void draw() {
 
   switch(Phase) {
   case -3:
-    B.display();
+    background(bgColor);
     if(opgaver > 0) {
     tP.tabs(100);
     }
+    B.display();
     break;
   case -2:
+    background(bgColor);
     EV.knapper();
     EV.velkomsTekst();
     B.display();
     break;
   case -1:
+    background(bgColor);
     L.loginLaerer();
     B.display();
     break;
   default:
+    background(bgColor);
     DefaultPhase();
     break;  
   case 1:
+    background(bgColor);
     L.loginLaerer();
     B.display();
     break;  
