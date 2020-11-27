@@ -34,4 +34,6 @@ void loading() {
   t4 = textboxes.get(3);
   t5 = textboxes.get(4);
   t6 = textboxes.get(5);
+  
+  lines = new String[100];
  }

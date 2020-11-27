@@ -26,8 +26,9 @@ Login L;
 OOOPG opgMakr;
 
 InputField[] DescTextboxArray; 
+String[] lines;
 
-float Phase = 0;
+int Phase = 0;
 
 boolean send = false;
 String msg = "";
@@ -43,8 +44,9 @@ void setup() {
 
 void draw() {
   clear();
-   println(textboxes.size());
-  //println(Phase);
+  println(Phase);
+  
+  
   if (Phase == 0) {
     Phase01();
   }
@@ -100,7 +102,9 @@ void keyPressed() {
       clear(); 
       background(25, 75, 140);
 
-      Phase = 1;
+      Phase = 2;
+      saveStrings(textboxes.get(0).Text, lines);
+      lines[0] = textboxes.get(0).Text;
     }
   }
   if (Phase==-0.5) {
@@ -108,7 +112,7 @@ void keyPressed() {
       clear(); 
       background(25, 75, 140);
 
-      Phase = -1;
+      Phase = -2;
 
       //send = true;
       //msg = textboxes.get(0).Text;
@@ -116,19 +120,19 @@ void keyPressed() {
     }
   if (Phase==2) {
     if (t2.KEYPRESSED(key, keyCode)) {
-      Phase = 2;
+      Phase = 3;
       }
      if (t3.KEYPRESSED(key, keyCode)) {
-      Phase = 2;
+      Phase = 3;
       }
      if (t4.KEYPRESSED(key, keyCode)) {
-      Phase = 2;
+      Phase = 3;
       }
      if (t5.KEYPRESSED(key, keyCode)) {
-      Phase = 2;
+      Phase = 3;
       }
       if (t6.KEYPRESSED(key, keyCode)) {
-      Phase = 2;
+      Phase = 3;
       }
     }
   }
@@ -144,17 +148,16 @@ void mouseClicked() {
       Phase = 3;
     } 
     if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
-      Phase = 2;
+      Phase = 3;
+      opgaver++;
     }
-  } else if (Phase == 2) {
-    //opgMouse();
-  }
+  } 
   if (Phase == 0) {
     if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
-      Phase = 0.5;
+      Phase = 2;
     }
     if (overRec(knapRightX, knapRightY, knapW, knapH)) {
-      Phase = -0.5;
+      Phase = -2;
     }
   }
   if (Phase == 2) {
