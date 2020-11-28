@@ -1,7 +1,6 @@
 class OOOPG {
   
   float x, y, w, h;
-  public boolean s1, s2, s3, s4;
   
   OOOPG(float x, float y, float w, float h) {
     this.x = x;
@@ -56,13 +55,19 @@ class OOOPG {
          t6.DRAW();
      if (mousePressed) {
      t6.PRESSED(mouseX, mouseY);
-     }  
+     }
+     
+   textSize(25);
+   fill(255);
+   text("?", x+655, y+85);  
+  }
    
+   void choice (int svar) {
    fill(255);
    stroke(0);
    strokeWeight(2);
    fill(255);
-   if (s1) {
+   if (svar == 1) {
    fill(0,250,0);
    rect(t3.X-55, t3.Y-2.5, 40, 40);
    } else {
@@ -70,7 +75,7 @@ class OOOPG {
    rect(t3.X-55,t3.Y-2.5, 40, 40);  
    }
    
-   if (s2) {
+   if (svar == 2) {
    fill(0,250,0);  
    rect(t4.X-55, t4.Y-2.5, 40, 40);
    } else {
@@ -78,7 +83,7 @@ class OOOPG {
    rect(t4.X-55, t4.Y-2.5, 40, 40);
    }
    
-   if (s3) {
+   if (svar == 3) {
    fill(0,250,0);  
    rect(t5.X-55, t5.Y-2.5, 40, 40);
    } else {
@@ -86,7 +91,7 @@ class OOOPG {
    rect(t5.X-55, t5.Y-2.5, 40, 40);
    }
    
-   if (s4) {
+   if (svar == 4) {
    fill(0,250,0);  
    rect(t6.X-55, t6.Y-2.5, 40, 40);
    } else {
@@ -109,38 +114,21 @@ class OOOPG {
    if (overRec(t6.X-55, y+300-2.5, 40, 40)) {
      fill(0,250,0); 
      rect(x+42.5, y+300-5, 45, 45);
+       }
    }
-   
-   
-   textSize(25);
-   fill(255);
-   text("?", x+655, y+85);  
-  }
   
   void click() {
     if (overRec(t3.X-55, y+147.5, 40, 40)) {
-     s1 = true;
-     s2 = false;
-     s3 = false;
-     s4 = false;
+     lerersvar = 1;
    }
    if (overRec(t4.X-55, y+200-2.5, 40, 40)) {
-     s1 = false;
-     s2 = true;
-     s3 = false;
-     s4 = false;
+     lerersvar = 2;
    }
    if (overRec(t5.X-55, y+250-2.5, 40, 40)) {
-     s1 = false;
-     s2 = false;
-     s3 = true;
-     s4 = false;
+     lerersvar = 3;
    }
    if (overRec(t6.X-55, t6.Y-2.5, 40, 40)) {
-     s1 = false;
-     s2 = false;
-     s3 = false;
-     s4 = true;
-   }
+     lerersvar = 4;
+    }
   }
 }

@@ -30,7 +30,10 @@ tilgengeligeProver tP;
 InputField[] DescTextboxArray; 
 String[] lines;
 
+PVector tabsPos;
+
 int Phase = 0;
+int lerersvar;
 
 boolean send = false;
 String msg = "";
@@ -46,13 +49,13 @@ void setup() {
 
 void draw() {
   clear();
-  println(Phase);
+  println(lerersvar);
 
   switch(Phase) {
   case -3:
     background(bgColor);
     if(opgaver > 0) {
-    tP.tabs(100);
+    tP.tabs(tabsPos.x, tabsPos.y, border.width, border.height);
     }
     B.display();
     break;
@@ -85,6 +88,7 @@ void draw() {
   case 3:
     clear();
     opgMakr.display();
+    opgMakr.choice(lerersvar);
     B.display();
     break;
   }
@@ -128,8 +132,11 @@ void mouseClicked() {
   t1.PRESSED(mouseX, mouseY);
 
   switch(Phase) {
+  case -4:
+  
   case -3:
   B.mouse(-1);
+  tP.pressed(tabsPos.x, tabsPos.y, border.width, border.height);
     break;
   case -2:
   B.mouse(-1);

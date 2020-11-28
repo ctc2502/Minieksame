@@ -35,4 +35,6 @@ void loading() {
   t6 = textboxes.get(5);
   
   lines = new String[100];
+  
+  tabsPos = new PVector(width/2-border.width/2, 100);
  }
