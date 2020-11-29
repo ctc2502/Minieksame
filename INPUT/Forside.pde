@@ -11,7 +11,7 @@ class Forside {
   }
 
   void knapper() {
-    background(25, 75, 140);
+    //background(25, 75, 140);
 
     //knapLeft
     fill(255);

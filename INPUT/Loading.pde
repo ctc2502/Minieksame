@@ -2,6 +2,8 @@ void loading() {
   //Objekt
   border = loadImage("Border.png");
   border.resize(702,75);
+  arrow = loadImage("backArrow.png");
+  arrow.resize(50,50);
   tabsPos = new PVector(width/2-border.width/2, 100);
   
   LV = new LaererValgmulighed();
@@ -9,9 +11,9 @@ void loading() {
   F = new Forside();
   L = new Login();
   
-  B = new Button(10, 10, 50, 50);
-  Confirm = new Button(600, 700, 150, 50);
-  tabby = new Button(tabsPos.x, tabsPos.y, border.width, border.height);
+  B = new Button(10, 10, 50, 50, "");
+  Confirm = new Button(600, 700, 150, 50, "Bekræft"+"\n"+"Svar");
+  tabby = new Button(tabsPos.x, tabsPos.y, border.width, border.height, "Test 1#");
   
   adm = new Administration();
   opgMakr = new OOOPG(50, 150, 700, 600);
@@ -50,6 +52,7 @@ void loading() {
   lines[2] = t4.Text;
   lines[3] = t5.Text;
   lines[4] = t6.Text;
+  text(lines[0], width/2, height/2);
   //lines2[0] = t1.Text;
   
   

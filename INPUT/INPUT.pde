@@ -3,7 +3,7 @@ int opgaver = 0;
 int tests = 0;
 color frameColor, greenColor, bgColor; 
 PVector OPGPOS, OPGSIZ;
-PImage border;
+PImage border, arrow;
 PFont sans; 
 float Pos, AlmenPos;
 
@@ -17,6 +17,7 @@ int knapLeftY = 600;
 //Variabler for knap right
 int knapRightX = 450;
 int knapRightY = 600;
+  
 
 //Objekter
 LaererValgmulighed LV;
@@ -54,48 +55,50 @@ void draw() {
   clear();
   //println(lerersvar + " " + elevsvar);
   //println(Phase);
-  println(lines[0]);
+ // println(lines[0]);
   background(bgColor);
   switch(Phase) {
   case -4: 
     opgMakr.choice(elevsvar);
     adm.muligeSvar();
-    B.display(255, 0, 0);
-    Confirm.display(0, 255, 0);
+    B.display();
+    if (elevsvar > 0) {
+    Confirm.recDisplay(255, 255, 51);
+    } else {
+    Confirm.recDisplay(255,255,204);
+    }
     break;
   case -3:
     if(opgaver > 0) {
     adm.tabs(tabsPos.x, tabsPos.y, border.width, border.height);
     }
-    B.display(255, 0, 0);
+    B.display();
     break;
   case -2:
     EV.knapper();
     EV.velkomsTekst();
-    B.display(255, 0, 0);
+    B.display();
     break;
   case -1:
     L.loginLaerer();
-    B.display(255, 0, 0);
+    B.display();
     break;
   default:
     DefaultPhase();
     break;  
   case 1:
     L.loginLaerer();
-    B.display(255, 0, 0);
+    B.display();
     break;  
   case 2:
-    clear();
     LV.knapper();
     LV.velkomsTekst();
-    B.display(255, 0, 0);
+    B.display();
     break;
   case 3:
-    clear();
     opgMakr.display();
     opgMakr.choice(lerersvar);
-    B.display(255, 0, 0);
+    B.display();
     break;
   }
   
@@ -114,12 +117,7 @@ void keyPressed() {
     if (t1.KEYPRESSED(key, keyCode)) {
       clear(); 
       background(25, 75, 140);
-
       Phase = 2;
-      
-      
-      
-      
     }
   }
   if (Phase == -1) {
@@ -149,26 +147,28 @@ void mouseClicked() {
 
   switch(Phase) {
   case -4:
-  B.mouse(1);
+  B.recMouse(1);
   opgMakr.click2();
   if (lerersvar == elevsvar) {
-    Confirm.mouse(1);
+    Confirm.recMouse(-1);
+  } else {
+    Confirm.recMouse(1);
   }
   break;
   case -3:
-  B.mouse(1);
+  B.recMouse(1);
   if (opgaver > 0) {
-  tabby.mouse(-1);
+  tabby.recMouse(-1);
   }
     break;
   case -2:
-  B.mouse(1);
+  B.recMouse(1);
   if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
       Phase = -3;
     }
     break;
   case -1:
-  B.mouse(1);
+  B.recMouse(1);
     break;
   default:
     if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
@@ -180,7 +180,7 @@ void mouseClicked() {
     break;  
   case 1:
     L.loginLaerer();
-    B.mouse(-1);
+    B.recMouse(-1);
     break;  
   case 2:
     if (overRec(knapRightX, knapRightY, knapW, knapH)) {
@@ -191,11 +191,11 @@ void mouseClicked() {
       Phase = 3;
       opgaver++;
     }
-    B.mouse(-1);
+    B.recMouse(-1);
     break;
   case 3:
     opgMakr.click();
-    B.mouse(-1);
+    B.recMouse(-1);
     break;
   }
 }
@@ -219,10 +219,10 @@ boolean overCircle(float x, float y, float diameter) {
 }
 
 void DefaultPhase() {
-  background(bgColor);
   fill(255);
   textAlign(CENTER);
-  text("Login", 400, 75);
+  textSize(32);
+  text("Login som lærer eller elev", 400, 75);
   textAlign(0);
   F.knapper();
 }
