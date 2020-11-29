@@ -3,7 +3,7 @@ int opgaver = 0;
 int tests = 0;
 color frameColor, greenColor, bgColor; 
 PVector OPGPOS, OPGSIZ;
-PImage border, arrow;
+PImage border, arrow, smiley;
 PFont sans; 
 float Pos, AlmenPos;
 
@@ -18,6 +18,7 @@ int knapLeftY = 600;
 int knapRightX = 450;
 int knapRightY = 600;
   
+PImage[] FW = new PImage[80];
 
 //Objekter
 LaererValgmulighed LV;
@@ -29,7 +30,7 @@ Button B;
 Button Confirm;
 Button tabby;
 Administration adm;
-
+Gif myAnimation;
 InputField[] DescTextboxArray; 
 String[] lines;
 String[] lines2;
@@ -53,14 +54,21 @@ void setup() {
 
 void draw() {
   clear();
+  opgMakr.vars();
   //println(lerersvar + " " + elevsvar);
-  //println(Phase);
+  println(t3.Text);
  // println(lines[0]);
   background(bgColor);
   switch(Phase) {
+  case -6:
+    FailingPhase();
+    break;
+  case -5:
+    VictoryPhase();
+    break;
   case -4: 
-    opgMakr.choice(elevsvar);
     adm.muligeSvar();
+    opgMakr.choice(elevsvar);
     B.display();
     if (elevsvar > 0) {
     Confirm.recDisplay(255, 255, 51);
@@ -152,7 +160,7 @@ void mouseClicked() {
   if (lerersvar == elevsvar) {
     Confirm.recMouse(-1);
   } else {
-    Confirm.recMouse(1);
+    Confirm.recMouse(-2);
   }
   break;
   case -3:
@@ -184,8 +192,12 @@ void mouseClicked() {
     break;  
   case 2:
     if (overRec(knapRightX, knapRightY, knapW, knapH)) {
-      clear();
-      Phase = 3;
+      lines[0] = t2.Text;
+      lines[1] = t3.Text;
+      lines[2] = t4.Text;
+      lines[3] = t5.Text;
+      lines[4] = t6.Text;
+      opgaver++;
     } 
     if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
       Phase = 3;
@@ -225,4 +237,25 @@ void DefaultPhase() {
   text("Login som lærer eller elev", 400, 75);
   textAlign(0);
   F.knapper();
+}
+
+void VictoryPhase() {
+  if (FW[frameCount%80]!= null) {
+    image(FW[frameCount%80], 0, 0);
+  }
+  textAlign(CENTER);
+  textSize(50);
+  fill(255);
+  text("Du svarede " + 1 + " ud af " + 1 + " rigtig", width/2, height/2);
+  textAlign(0);
+}
+
+void FailingPhase() {
+  imageMode(CENTER);
+  image(smiley, width/2, height/2-200);
+  fill(255);
+  textAlign(CENTER);
+  text("Du svarede " + 0 + " ud af " + 1 + " rigtig", width/2, height/2);
+  imageMode(0);
+  textAlign(0);
 }

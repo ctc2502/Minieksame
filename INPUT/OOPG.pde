@@ -9,6 +9,29 @@ class OOOPG {
     this.h = h;
   }
   
+  void vars() {
+    t2.X = x+50;
+   t2.Y = y+50;
+   t2.W = w-100;
+   t2.H = 35;
+    t5.X = x+100;
+   t5.Y = y+250;
+   t5.W = w-150;
+   t5.H = 35;
+    t3.X = x+100;
+   t3.Y = y+150;
+   t3.W = w-150;
+   t3.H = 35;
+   t4.X = x+100;
+   t4.Y = y+200;
+   t4.W = w-150;
+   t4.H = 35;
+   t6.X = x+100;
+   t6.Y = y+300;
+   t6.W = w-150;
+   t6.H = 35;
+  }
+  
   void display() {
     strokeWeight(2);
    stroke(frameColor);
@@ -16,42 +39,26 @@ class OOOPG {
    image(border, x, y-80);
    rect(x, y, w, h);
    fill(greenColor);
-   t2.X = x+50;
-   t2.Y = y+50;
-   t2.W = w-100;
-   t2.H = 35;
+   
    t2.DRAW();
    if (mousePressed) {
      t2.PRESSED(mouseX, mouseY);
      }
-   t3.X = x+100;
-   t3.Y = y+150;
-   t3.W = w-150;
-   t3.H = 35;
+  
          t3.DRAW();
    if (mousePressed) {
      t3.PRESSED(mouseX, mouseY);
      }
-   t4.X = x+100;
-   t4.Y = y+200;
-   t4.W = w-150;
-   t4.H = 35;
+   
          t4.DRAW();
    if (mousePressed) {
      t4.PRESSED(mouseX, mouseY);
      }
-   t5.X = x+100;
-   t5.Y = y+250;
-   t5.W = w-150;
-   t5.H = 35;
+   
          t5.DRAW();
    if (mousePressed) {
      t5.PRESSED(mouseX, mouseY);
      }
-   t6.X = x+100;
-   t6.Y = y+300;
-   t6.W = w-150;
-   t6.H = 35;
          t6.DRAW();
      if (mousePressed) {
      t6.PRESSED(mouseX, mouseY);

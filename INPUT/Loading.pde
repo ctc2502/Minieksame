@@ -4,6 +4,13 @@ void loading() {
   border.resize(702,75);
   arrow = loadImage("backArrow.png");
   arrow.resize(50,50);
+  smiley = loadImage("Smiley.png");
+  smiley.resize(250,250);
+  for (int i = 1; i < FW.length; i++) {
+    FW[i] = loadImage( "Firework " + "(" + i + ")" + ".gif");
+    FW[i].resize(width,height);
+  }
+   
   tabsPos = new PVector(width/2-border.width/2, 100);
   
   LV = new LaererValgmulighed();
