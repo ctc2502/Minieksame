@@ -17,7 +17,7 @@ int knapLeftY = 600;
 //Variabler for knap right
 int knapRightX = 450;
 int knapRightY = 600;
-  
+
 PImage[] FW = new PImage[80];
 
 //Objekter
@@ -27,10 +27,11 @@ Forside F;
 Login L;
 OOOPG opgMakr;
 Button B;
-Button Confirm;
-Button tabby;
+Button FWD;
+Button[] LeftButt, RightButt;
+
 Administration adm;
-Gif myAnimation;
+
 InputField[] DescTextboxArray; 
 String[] lines;
 String[] lines2;
@@ -62,54 +63,56 @@ void draw() {
   switch(Phase) {
   case -6:
     FailingPhase();
+    B.display(arrow, 10, 10, 50, 50);
     break;
   case -5:
     VictoryPhase();
+    B.display(arrow, 10, 10, 50, 50);
     break;
   case -4: 
     adm.muligeSvar();
     opgMakr.choice(elevsvar);
-    B.display();
+    B.display(arrow, 10, 10, 50, 50);
     if (elevsvar > 0) {
-    Confirm.recDisplay(255, 255, 51);
+      FWD.recDisplay(600, 700, 150, 50, "Bekræft"+"\n"+"Svar", 255, 255, 51);
     } else {
-    Confirm.recDisplay(255,255,204);
+      FWD.recDisplay(600, 700, 150, 50, "Bekræft"+"\n"+"Svar", 255, 255, 204);
     }
     break;
   case -3:
-    if(opgaver > 0) {
-    adm.tabs(tabsPos.x, tabsPos.y, border.width, border.height);
+    if (opgaver > 0) {
+      B.display(border, tabsPos.x, tabsPos.y, border.width, border.height);
     }
-    B.display();
+    B.display(arrow, 10, 10, 50, 50);
     break;
   case -2:
     EV.knapper();
     EV.velkomsTekst();
-    B.display();
+    B.display(arrow, 10, 10, 50, 50);
     break;
   case -1:
     L.loginLaerer();
-    B.display();
+    B.display(arrow, 10, 10, 50, 50);
     break;
   default:
     DefaultPhase();
     break;  
   case 1:
     L.loginLaerer();
-    B.display();
+    B.display(arrow, 10, 10, 50, 50);
     break;  
   case 2:
     LV.knapper();
     LV.velkomsTekst();
-    B.display();
+    B.display(arrow, 10, 10, 50, 50);
     break;
   case 3:
     opgMakr.display();
     opgMakr.choice(lerersvar);
-    B.display();
+    B.display(arrow, 10, 10, 50, 50);
     break;
   }
-  
+
 
   if (mouseButton == RIGHT) {
     ellipse( mouseX, mouseY, 2, 2 );
@@ -123,55 +126,54 @@ void draw() {
 void keyPressed() {
   if (Phase == 1) {
     if (t1.KEYPRESSED(key, keyCode)) {
-      clear(); 
-      background(25, 75, 140);
       Phase = 2;
     }
   }
   if (Phase == -1) {
     if (t1.KEYPRESSED(key, keyCode)) {
-      clear(); 
-      background(25, 75, 140);
-
       Phase = -2;
     }
   }
   if (Phase == 3) {
     if (t2.KEYPRESSED(key, keyCode) || t3.KEYPRESSED(key, keyCode) || t4.KEYPRESSED(key, keyCode) || t5.KEYPRESSED(key, keyCode) || t6.KEYPRESSED(key, keyCode)) {
-      
     }
   }
 }
-
 
 void mouseClicked() {
 
   t1.PRESSED(mouseX, mouseY);
 
   switch(Phase) {
+  case -6: 
+    B.recMouse(10, 10, 50, 50, 3);
+    break;
+  case -5:
+    B.recMouse(10, 10, 50, 50, 2);
+    break;
   case -4:
-  B.recMouse(1);
-  opgMakr.click2();
-  if (lerersvar == elevsvar) {
-    Confirm.recMouse(-1);
-  } else {
-    Confirm.recMouse(-2);
-  }
-  break;
+    B.recMouse(10, 10, 50, 50, 1);
+    opgMakr.click2();
+    if (lerersvar == elevsvar) {
+      FWD.recMouse(600, 700, 150, 50, -1);
+    } else {
+      FWD.recMouse(600, 700, 150, 50, -2);
+    }
+    break;
   case -3:
-  B.recMouse(1);
-  if (opgaver > 0) {
-  tabby.recMouse(-1);
-  }
+    B.recMouse(10, 10, 50, 50, 1);
+    if (opgaver > 0) {
+      FWD.recMouse(tabsPos.x, tabsPos.y, border.width, border.height, -1);
+    }
     break;
   case -2:
-  B.recMouse(1);
-  if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
+    B.recMouse(10, 10, 50, 50, 1);
+    if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
       Phase = -3;
     }
     break;
   case -1:
-  B.recMouse(1);
+    B.recMouse(10, 10, 50, 50, 1);
     break;
   default:
     if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
@@ -183,7 +185,7 @@ void mouseClicked() {
     break;  
   case 1:
     L.loginLaerer();
-    B.recMouse(-1);
+    B.recMouse(10, 10, 50, 50, -1);
     break;  
   case 2:
     if (overRec(knapRightX, knapRightY, knapW, knapH)) {
@@ -204,11 +206,11 @@ void mouseClicked() {
       Phase = 3;
       opgaver++;
     }
-    B.recMouse(-1);
+    B.recMouse(10, 10, 50, 50, -1);
     break;
   case 3:
     opgMakr.click();
-    B.recMouse(-1);
+    B.recMouse(10, 10, 50, 50, -1);
     lines[0] = t2.Text;
     lines[1] = t3.Text;
     lines[2] = t4.Text;
@@ -243,6 +245,7 @@ void DefaultPhase() {
   textSize(32);
   text("Login som lærer eller elev", 400, 75);
   textAlign(0);
+  //FWD.recDisplay(,,,,,0,0,0);
   F.knapper();
 }
 

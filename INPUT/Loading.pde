@@ -18,9 +18,10 @@ void loading() {
   F = new Forside();
   L = new Login();
   
-  B = new Button(10, 10, 50, 50, "");
-  Confirm = new Button(600, 700, 150, 50, "Bekræft"+"\n"+"Svar");
-  tabby = new Button(tabsPos.x, tabsPos.y, border.width, border.height, "Test 1#");
+   B = new Button();
+   FWD = new Button();
+  //tabby = new Button(tabsPos.x, tabsPos.y, border.width, border.height, "");
+  //RightButt[0] = new Button */
   
   adm = new Administration();
   opgMakr = new OOOPG(50, 150, 700, 600);

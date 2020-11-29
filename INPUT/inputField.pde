@@ -56,11 +56,12 @@ public class InputField { //<>//
       } else if (KEYCODE == (int)ENTER) {
         return true;
       } else {
-        boolean isKeyCapitalLetter = (KEY >= 'A' && KEY <= 'Z');
-        boolean isKeySmallLetter = (KEY >= 'a' && KEY <= 'z');
+        boolean isKeyCapitalLetter = (KEY >= 'A' && KEY <= 'Ø');
+        boolean isKeySmallLetter = (KEY >= 'a' && KEY <= 'ø');
         boolean isKeyNumber = (KEY >= '0' && KEY <= '9');
+        boolean isKeySpecial = (KEY >= '!' && KEY <= '?');
 
-        if (isKeyCapitalLetter || isKeySmallLetter ||isKeyNumber) {
+        if (isKeyCapitalLetter || isKeySmallLetter ||isKeyNumber || isKeySpecial) {
           addText(KEY);
         }
       }

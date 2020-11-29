@@ -1,25 +1,18 @@
 class Button {
-  float x, y, w, h;
-  String s;
   
-  Button(float x, float y, float z,  float h, String s) {
-  this.x = x;
-  this.y = y;
-  this.w = z;
-  this.h = h;
-  this.s = s;
+  Button() {
   }
   
-  void display(){
+  void display(PImage img, float x, float y, float w, float h){
     if (overRec(x, y, w, h)) {
-    image(arrow, x-2.5, y-2.5, 55, 55);
+    image(img, x-2.5, y-2.5, w+5, h+5);
     } else {
-    image(arrow, x, y);
+    image(img, x, y);
     }
     imageMode(0);
   }
   
-  void recDisplay(int r, int g, int b) {
+  void recDisplay(float x, float y, float w, float h, String s, int r, int g, int b) {
     fill(r, g, b);
     stroke(0);
     strokeWeight(2);
@@ -39,14 +32,14 @@ class Button {
     textAlign(0);
   }
   
-  void recMouse(int i) {
+  void recMouse(float x, float y, float w, float h, int i) {
     if (overRec(x, y, w, h)) {
       Phase = Phase + i;
       elevsvar = 0;
     }
   }
   
-  void circleMouse(int i) {
+  void circleMouse(float x, float y, float w, float h, int i) {
     if (overCircle(x, y, w)) {
       Phase = Phase + i;
     }
