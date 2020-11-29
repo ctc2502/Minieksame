@@ -16,7 +16,7 @@ void loading() {
   adm = new Administration();
   opgMakr = new OOOPG(50, 150, 700, 600);
   
-  InputField UserTextbox = new InputField((width - 300) / 2, 100, 300, 35, "YES");
+  InputField UserTextbox = new InputField((width - 300) / 2, 100, 300, 35);
   
   DescTextboxArray = new InputField[5];
   
@@ -44,6 +44,12 @@ void loading() {
   
   lines = new String[5];
   lines = loadStrings("Questions.csv");
+  
+  lines[0] = t2.Text;
+  lines[1] = t3.Text;
+  lines[2] = t4.Text;
+  lines[3] = t5.Text;
+  lines[4] = t6.Text;
   //lines2[0] = t1.Text;
   
   

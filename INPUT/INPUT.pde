@@ -98,11 +98,6 @@ void draw() {
     B.display(255, 0, 0);
     break;
   }
-  lines[0] = t2.Text;
-  lines[1] = t3.Text;
-  lines[2] = t4.Text;
-  lines[3] = t5.Text;
-  lines[4] = t6.Text;
   
 
   if (mouseButton == RIGHT) {
@@ -137,6 +132,11 @@ void keyPressed() {
   }
   if (Phase == 3) {
     if (t2.KEYPRESSED(key, keyCode) || t3.KEYPRESSED(key, keyCode) || t4.KEYPRESSED(key, keyCode) || t5.KEYPRESSED(key, keyCode) || t6.KEYPRESSED(key, keyCode)) {
+      lines[0] = t2.Text;
+      lines[1] = t3.Text;
+      lines[2] = t4.Text;
+      lines[3] = t5.Text;
+      lines[4] = t6.Text;
       saveStrings("Questions.csv", lines);
     }
   }
