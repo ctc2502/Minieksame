@@ -31,6 +31,7 @@ Administration adm;
 
 InputField[] DescTextboxArray; 
 String[] lines;
+String[] lines2;
 
 PVector tabsPos;
 
@@ -51,8 +52,9 @@ void setup() {
 
 void draw() {
   clear();
-  println(lerersvar + " " + elevsvar);
+  //println(lerersvar + " " + elevsvar);
   //println(Phase);
+  println(lines[0]);
   background(bgColor);
   switch(Phase) {
   case -4: 
@@ -96,6 +98,12 @@ void draw() {
     B.display(255, 0, 0);
     break;
   }
+  lines[0] = t2.Text;
+  lines[1] = t3.Text;
+  lines[2] = t4.Text;
+  lines[3] = t5.Text;
+  lines[4] = t6.Text;
+  
 
   if (mouseButton == RIGHT) {
     ellipse( mouseX, mouseY, 2, 2 );
@@ -113,7 +121,10 @@ void keyPressed() {
       background(25, 75, 140);
 
       Phase = 2;
-      saveStrings(textboxes.get(0).Text, lines);
+      
+      
+      
+      
     }
   }
   if (Phase == -1) {
@@ -126,6 +137,7 @@ void keyPressed() {
   }
   if (Phase == 3) {
     if (t2.KEYPRESSED(key, keyCode) || t3.KEYPRESSED(key, keyCode) || t4.KEYPRESSED(key, keyCode) || t5.KEYPRESSED(key, keyCode) || t6.KEYPRESSED(key, keyCode)) {
+      saveStrings("Questions.csv", lines);
     }
   }
 }

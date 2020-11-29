@@ -24,10 +24,4 @@ class Administration {
     text(t5.Text, t5.X, t5.Y+20);
     text(t6.Text, t6.X, t6.Y+20);
   }
-  
-  void pressed(float x, float y, float z, float h) {
-    if (overRec(x,y,z,h)) {
-      Phase = -4;
-    }
-  }
 }
