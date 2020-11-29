@@ -9,7 +9,7 @@ class Forside {
     knapLeftText = "Login som lærer";
     knapRightText = "Login som elev";
   }
-
+/*
   void knapper() {
     //background(25, 75, 140);
 
@@ -27,10 +27,10 @@ class Forside {
     textSize(20);
     text(knapRightText, knapRightX+10, knapRightY+45);
   }
-
+ */
   void velkomsTekst() {
     fill(255);
     textSize(48);
     text(velkommen + "\n" + textboxes.get(0).Text + "!", 50, 100);
-  }
+  } 
 }

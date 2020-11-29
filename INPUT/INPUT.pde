@@ -7,17 +7,6 @@ PImage border, arrow, smiley;
 PFont sans; 
 float Pos, AlmenPos;
 
-int knapW = 250;
-int knapH = 75;
-
-//Variabler for knap left
-int knapLeftX = 100;
-int knapLeftY = 600;
-
-//Variabler for knap right
-int knapRightX = 450;
-int knapRightY = 600;
-
 PImage[] FW = new PImage[80];
 
 //Objekter
@@ -74,9 +63,9 @@ void draw() {
     opgMakr.choice(elevsvar);
     B.display(arrow, 10, 10, 50, 50);
     if (elevsvar > 0) {
-      FWD.recDisplay(600, 700, 150, 50, "Bekræft"+"\n"+"Svar", 255, 255, 51);
+      FWD.recDisplay(400, 700, 150, 50, "Bekræft"+"\n"+"Svar", 255, 255, 51);
     } else {
-      FWD.recDisplay(600, 700, 150, 50, "Bekræft"+"\n"+"Svar", 255, 255, 204);
+      FWD.recDisplay(400, 700, 150, 50, "Bekræft"+"\n"+"Svar", 255, 255, 204);
     }
     break;
   case -3:
@@ -86,9 +75,10 @@ void draw() {
     B.display(arrow, 10, 10, 50, 50);
     break;
   case -2:
-    EV.knapper();
+    //EV.knapper();
     EV.velkomsTekst();
     B.display(arrow, 10, 10, 50, 50);
+    FWD.recDisplay(100,400,250,75,"Gå til dine prøver",255,255,255);
     break;
   case -1:
     L.loginLaerer();
@@ -102,9 +92,11 @@ void draw() {
     B.display(arrow, 10, 10, 50, 50);
     break;  
   case 2:
-    LV.knapper();
+    //LV.knapper();
     LV.velkomsTekst();
     B.display(arrow, 10, 10, 50, 50);
+    FWD.recDisplay(100,400,250,75,"Lav ny prøve",255,255,255);
+    FWD.recDisplay(450,400,250,75,"Indlæs tidligere teste",255,255,255);
     break;
   case 3:
     opgMakr.display();
@@ -155,9 +147,9 @@ void mouseClicked() {
     B.recMouse(10, 10, 50, 50, 1);
     opgMakr.click2();
     if (lerersvar == elevsvar) {
-      FWD.recMouse(600, 700, 150, 50, -1);
+      FWD.recMouse(400, 700, 150, 50, -1);
     } else {
-      FWD.recMouse(600, 700, 150, 50, -2);
+      FWD.recMouse(400, 700, 150, 50, -2);
     }
     break;
   case -3:
@@ -168,7 +160,7 @@ void mouseClicked() {
     break;
   case -2:
     B.recMouse(10, 10, 50, 50, 1);
-    if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
+    if (overRec(100, 400, 250, 75)) {
       Phase = -3;
     }
     break;
@@ -176,10 +168,10 @@ void mouseClicked() {
     B.recMouse(10, 10, 50, 50, 1);
     break;
   default:
-    if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
+    if (overRec(100, 400, 250, 75)) {
       Phase = 1;
     }
-    if (overRec(knapRightX, knapRightY, knapW, knapH)) {
+    if (overRec(450, 400, 250, 75)) {
       Phase = -1;
     }
     break;  
@@ -188,7 +180,7 @@ void mouseClicked() {
     B.recMouse(10, 10, 50, 50, -1);
     break;  
   case 2:
-    if (overRec(knapRightX, knapRightY, knapW, knapH)) {
+    if (overRec(450, 400, 250, 75)) {
       t2.Text = lines2[0];
       t3.Text = lines2[1];
       t4.Text = lines2[2];
@@ -197,7 +189,7 @@ void mouseClicked() {
       Phase = 3;
       opgaver++;
     } 
-    if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
+    if (overRec(100, 400, 250, 75)) {
       t2.Text = "";
       t3.Text = "";
       t4.Text = "";
@@ -245,8 +237,9 @@ void DefaultPhase() {
   textSize(32);
   text("Login som lærer eller elev", 400, 75);
   textAlign(0);
-  //FWD.recDisplay(,,,,,0,0,0);
-  F.knapper();
+  FWD.recDisplay(100,400,250,75,"Login som lærer",255,255,255);
+  FWD.recDisplay(450,400,250,75,"Login som elev",255,255,255);
+  //F.knapper();
 }
 
 void VictoryPhase() {
