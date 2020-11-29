@@ -29,8 +29,7 @@ void loading() {
   
   DescTextboxArray = new InputField[5];
   
-  OPGPOS = new PVector(50, 150);
-  OPGSIZ = new PVector(700, 600);
+  
   frameColor = color(184, 195, 204);
   bgColor = color(25, 75, 140);
   greenColor = color(25, 140, 75);
@@ -52,15 +51,7 @@ void loading() {
   t6 = textboxes.get(5);
   
   lines = new String[5];
-  lines = loadStrings("Questions.csv");
-  
-  lines[0] = t2.Text;
-  lines[1] = t3.Text;
-  lines[2] = t4.Text;
-  lines[3] = t5.Text;
-  lines[4] = t6.Text;
-  text(lines[0], width/2, height/2);
-  //lines2[0] = t1.Text;
+  lines2 = loadStrings("Questions.csv");
   
   
  }

@@ -56,8 +56,8 @@ void draw() {
   clear();
   opgMakr.vars();
   //println(lerersvar + " " + elevsvar);
-  println(t3.Text);
- // println(lines[0]);
+  println(lines2[1]);
+  //println(lines[0]);
   background(bgColor);
   switch(Phase) {
   case -6:
@@ -138,12 +138,7 @@ void keyPressed() {
   }
   if (Phase == 3) {
     if (t2.KEYPRESSED(key, keyCode) || t3.KEYPRESSED(key, keyCode) || t4.KEYPRESSED(key, keyCode) || t5.KEYPRESSED(key, keyCode) || t6.KEYPRESSED(key, keyCode)) {
-      lines[0] = t2.Text;
-      lines[1] = t3.Text;
-      lines[2] = t4.Text;
-      lines[3] = t5.Text;
-      lines[4] = t6.Text;
-      saveStrings("Questions.csv", lines);
+      
     }
   }
 }
@@ -192,14 +187,20 @@ void mouseClicked() {
     break;  
   case 2:
     if (overRec(knapRightX, knapRightY, knapW, knapH)) {
-      lines[0] = t2.Text;
-      lines[1] = t3.Text;
-      lines[2] = t4.Text;
-      lines[3] = t5.Text;
-      lines[4] = t6.Text;
+      t2.Text = lines2[0];
+      t3.Text = lines2[1];
+      t4.Text = lines2[2];
+      t5.Text = lines2[3];
+      t6.Text = lines2[4];
+      Phase = 3;
       opgaver++;
     } 
     if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
+      t2.Text = "";
+      t3.Text = "";
+      t4.Text = "";
+      t5.Text = "";
+      t6.Text = "";
       Phase = 3;
       opgaver++;
     }
@@ -208,6 +209,12 @@ void mouseClicked() {
   case 3:
     opgMakr.click();
     B.recMouse(-1);
+    lines[0] = t2.Text;
+    lines[1] = t3.Text;
+    lines[2] = t4.Text;
+    lines[3] = t5.Text;
+    lines[4] = t6.Text;
+    saveStrings("Questions.csv", lines);
     break;
   }
 }
