@@ -25,7 +25,9 @@ Forside F;
 Login L;
 OOOPG opgMakr;
 Button B;
-tilgengeligeProver tP;
+Button Confirm;
+Button tabby;
+Administration adm;
 
 InputField[] DescTextboxArray; 
 String[] lines;
@@ -33,7 +35,7 @@ String[] lines;
 PVector tabsPos;
 
 int Phase = 0;
-int lerersvar;
+int lerersvar, elevsvar;
 
 boolean send = false;
 String msg = "";
@@ -49,47 +51,49 @@ void setup() {
 
 void draw() {
   clear();
-  println(lerersvar);
-
+  println(lerersvar + " " + elevsvar);
+  //println(Phase);
+  background(bgColor);
   switch(Phase) {
+  case -4: 
+    opgMakr.choice(elevsvar);
+    adm.muligeSvar();
+    B.display(255, 0, 0);
+    Confirm.display(0, 255, 0);
+    break;
   case -3:
-    background(bgColor);
     if(opgaver > 0) {
-    tP.tabs(tabsPos.x, tabsPos.y, border.width, border.height);
+    adm.tabs(tabsPos.x, tabsPos.y, border.width, border.height);
     }
-    B.display();
+    B.display(255, 0, 0);
     break;
   case -2:
-    background(bgColor);
     EV.knapper();
     EV.velkomsTekst();
-    B.display();
+    B.display(255, 0, 0);
     break;
   case -1:
-    background(bgColor);
     L.loginLaerer();
-    B.display();
+    B.display(255, 0, 0);
     break;
   default:
-    background(bgColor);
     DefaultPhase();
     break;  
   case 1:
-    background(bgColor);
     L.loginLaerer();
-    B.display();
+    B.display(255, 0, 0);
     break;  
   case 2:
     clear();
     LV.knapper();
     LV.velkomsTekst();
-    B.display();
+    B.display(255, 0, 0);
     break;
   case 3:
     clear();
     opgMakr.display();
     opgMakr.choice(lerersvar);
-    B.display();
+    B.display(255, 0, 0);
     break;
   }
 
@@ -133,19 +137,26 @@ void mouseClicked() {
 
   switch(Phase) {
   case -4:
-  
+  B.mouse(1);
+  opgMakr.click2();
+  if (lerersvar == elevsvar) {
+    Confirm.mouse(1);
+  }
+  break;
   case -3:
-  B.mouse(-1);
-  tP.pressed(tabsPos.x, tabsPos.y, border.width, border.height);
+  B.mouse(1);
+  if (opgaver > 0) {
+  tabby.mouse(-1);
+  }
     break;
   case -2:
-  B.mouse(-1);
+  B.mouse(1);
   if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {
       Phase = -3;
     }
     break;
   case -1:
-  B.mouse(-1);
+  B.mouse(1);
     break;
   default:
     if (overRec(knapLeftX, knapLeftY, knapW, knapH)) {

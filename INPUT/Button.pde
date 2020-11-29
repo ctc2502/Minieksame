@@ -8,8 +8,8 @@ class Button {
   this.h = h;
   }
   
-  void display() {
-    fill(255, 0, 0);
+  void display(int r, int g, int b) {
+    fill(r, g, b);
     rect(x,y,z,h);
   }
   

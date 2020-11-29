@@ -99,21 +99,21 @@ class OOOPG {
    rect(t6.X-55, t6.Y-2.5, 40, 40);
    }
    
-   if (overRec(t3.X-55, y+147.5, 40, 40)) {
-     fill(0,250,0); 
-     rect(x+42.5, y+145, 45, 45);
+   if (overRec(t3.X-55, t3.Y-2.5, 40, 40)) {
+     fill(greenColor); 
+     rect(t3.X-57.5, t3.Y-5, 45, 45);
    }
-   if (overRec(t4.X-55, y+200-2.5, 40, 40)) {
-     fill(0,250,0); 
-     rect(x+42.5, y+200-5, 45, 45);
+   if (overRec(t4.X-55, t4.Y-2.5, 40, 40)) {
+     fill(greenColor); 
+     rect(t4.X-57.5, t4.Y-5, 45, 45);
    }
-   if (overRec(t5.X-55, y+250-2.5, 40, 40)) {
-     fill(0,250,0); 
-     rect(x+42.5, y+250-5, 45, 45);
+   if (overRec(t5.X-55, t5.Y-2.5, 40, 40)) {
+     fill(greenColor); 
+     rect(t5.X-57.5, t5.Y-5, 45, 45);
    }
-   if (overRec(t6.X-55, y+300-2.5, 40, 40)) {
-     fill(0,250,0); 
-     rect(x+42.5, y+300-5, 45, 45);
+   if (overRec(t6.X-55, t6.Y-2.5, 40, 40)) {
+     fill(greenColor); 
+     rect(t6.X-57.5, t6.Y-5, 45, 45);
        }
    }
   
@@ -129,6 +129,21 @@ class OOOPG {
    }
    if (overRec(t6.X-55, t6.Y-2.5, 40, 40)) {
      lerersvar = 4;
+    }
+  }
+  
+  void click2() {
+    if (overRec(t3.X-55, y+147.5, 40, 40)) {
+     elevsvar = 1;
+   }
+   if (overRec(t4.X-55, y+200-2.5, 40, 40)) {
+     elevsvar = 2;
+   }
+   if (overRec(t5.X-55, y+250-2.5, 40, 40)) {
+     elevsvar = 3;
+   }
+   if (overRec(t6.X-55, t6.Y-2.5, 40, 40)) {
+     elevsvar = 4;
     }
   }
 }

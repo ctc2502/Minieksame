@@ -1,12 +1,21 @@
 void loading() {
   //Objekt
+  border = loadImage("Border.png");
+  border.resize(702,75);
+  tabsPos = new PVector(width/2-border.width/2, 100);
+  
   LV = new LaererValgmulighed();
   EV = new ElevValgmulighed();
   F = new Forside();
   L = new Login();
+  
   B = new Button(10, 10, 50, 50);
-  tP = new tilgengeligeProver();
+  Confirm = new Button(600, 700, 150, 50);
+  tabby = new Button(tabsPos.x, tabsPos.y, border.width, border.height);
+  
+  adm = new Administration();
   opgMakr = new OOOPG(50, 150, 700, 600);
+  
   InputField UserTextbox = new InputField((width - 300) / 2, 100, 300, 35, "Brugernavn");
   
   DescTextboxArray = new InputField[5];
@@ -19,8 +28,7 @@ void loading() {
   sans = createFont("Sans.ttf", 32);
   textFont(sans);
   
-  border = loadImage("Border.png");
-  border.resize(702,75);
+  
   textboxes.add(UserTextbox);
   for (int i = 0; i < 5; i++) {
     DescTextboxArray[i] = new InputField();
@@ -36,5 +44,5 @@ void loading() {
   
   lines = new String[100];
   
-  tabsPos = new PVector(width/2-border.width/2, 100);
+  
  }
